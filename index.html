@@ -15,7 +15,7 @@
 </head>
 
 <body ng-app="bannerApp" ng-controller="bannerController">
-  <div ng-repeat="b in bannerdata | orderBy:predicate" ng-animate="'item'">
+  <div ng-repeat="b in bannerdata" ng-style="{'left':getLeftPosition(b.index)}" class="char">
     {{b.char}}
   </div>
   <!-- <div ng-style="testing(st)" class="test">HELLO</div>

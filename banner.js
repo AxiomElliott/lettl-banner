@@ -2,16 +2,15 @@ var bannerApp = angular.module('bannerApp', []);
 
 bannerApp.controller('bannerController', ['$scope','$window','$timeout', function($scope,$window,$timeout){
   $scope.bannerdata = [
-  {'index':1, 'char':'l'},
-  {'index':0, 'char':'e'},
-  {'index':5, 'char':'t'},
-  {'index':6, 'char':'t'},
-  {'index':2, 'char':'l'},
-  {'index':7, 'char':'.'},
-  {'index':3, 'char':'i'},
-  {'index':4, 'char':'o'}
+  {'index':0, 'char':'l'},
+  {'index':1, 'char':'e'},
+  {'index':2, 'char':'t'},
+  {'index':3, 'char':'t'},
+  {'index':4, 'char':'l'},
+  {'index':5, 'char':'.'},
+  {'index':6, 'char':'i'},
+  {'index':7, 'char':'o'}
   ];
-  $scope.predicate = '';
   var surname = [
     {'index':8, 'char':'t'},
     {'index':9, 'char':'h'},
@@ -23,27 +22,21 @@ bannerApp.controller('bannerController', ['$scope','$window','$timeout', functio
     {'index':15, 'char':'n'}
   ];
 
+  var newIndices = [1,0,5,6,2,7,3,4];
+
   $timeout(function() {
-    $scope.predicate = 'index';
+    for(i = 0; i < $scope.bannerdata.length; i++) {
+      $scope.bannerdata[i].index = newIndices[i];
+      console.log(newIndices[i]);
+    }
   }, 2000);
 
   $timeout(function() {
-    $scope.predicate = 'index';
     $scope.bannerdata = $scope.bannerdata.concat(surname);
   }, 5000);
 
-$scope.st = "200px";
-
-$scope.testing = function(t) {
-  return { left: (t) + 'px' };
-};
-
-$scope.test = function() {
-  $scope.st = "100px";
-};
-
-
-
-
+  $scope.getLeftPosition = function(index){
+    return (index * 20 + 200) + 'px';
+  }
 
 }]);
