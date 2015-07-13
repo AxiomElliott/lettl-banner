@@ -8,13 +8,17 @@
   <meta name="description" content="Demo project">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+  <script src="banner.js"></script>
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
   <style type="text/css"></style>
 </head>
 
-<body ng-app>
-  <p>Let the game begin!</p>
+<body ng-app="bannerApp" ng-controller="bannerController">
+  <div ng-repeat="b in bannerdata | orderBy:predicate" ng-animate="'item'">
+    {{b.char}}
+  </div>
+  <!-- <div ng-style="testing(st)" class="test">HELLO</div>
+  <div ng-click="test()">Click Me!</div> -->
 </body>
-<script type="text/javascript"></script>
-
 </html>
