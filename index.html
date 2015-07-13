@@ -8,17 +8,19 @@
   <meta name="description" content="Demo project">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   <script src="banner.js"></script>
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
   <style type="text/css"></style>
 </head>
-
-<body ng-app="bannerApp" ng-controller="bannerController">
-  <div ng-repeat="b in bannerdata" ng-style="{'left':getLeftPosition(b.index)}" class="char">
-    {{b.char}}
-  </div>
-  <!-- <div ng-style="testing(st)" class="test">HELLO</div>
-  <div ng-click="test()">Click Me!</div> -->
+<body>
+  <div ng-app="bannerApp" ng-controller="bannerController">
+    <div ng-repeat="b in bannerdata" ng-style="{'left':getLeftPosition(b.index)}" ng-class="b.charclasses">
+      {{b.char}}
+    </div>
+    <!-- <div ng-style="testing(st)" class="test">HELLO</div>
+    <div ng-click="test()">Click Me!</div> -->
+  </div class="bannercontainer">
 </body>
 </html>
